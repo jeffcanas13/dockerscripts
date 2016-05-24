@@ -1,0 +1,7 @@
+docker run -it --privileged \
+      -v /tmp/.X11-unix:/tmp/.X11-unix \
+      -e DISPLAY=unix$DISPLAY \
+      --link pulseaudio:pulseaudio \
+      -e PULSE_SERVER=pulseaudio \
+      --name dockerskype \
+      jess/skype

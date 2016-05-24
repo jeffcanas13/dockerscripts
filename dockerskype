@@ -4,4 +4,4 @@ docker run -it --privileged \
       --link pulseaudio:pulseaudio \
       -e PULSE_SERVER=pulseaudio \
       --name dockerskype \
-      jess/skype
+      jeff/skype

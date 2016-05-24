@@ -1,0 +1,16 @@
+FROM ubuntu:14.04
+
+RUN apt-get update && apt-get install -y firefox
+
+# Replace 1000 with your user / group id
+RUN export uid=1000 gid=1000 && \
+    mkdir -p /home/jeff && \
+    echo "jeff:x:${uid}:${gid}:jeff,,,:/home/jeff:/bin/bash" >> /etc/passwd && \
+    echo "jeff:x:${uid}:" >> /etc/group && \
+    echo "jeff ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/jeff && \
+    chmod 0440 /etc/sudoers.d/jeff && \
+    chown ${uid}:${gid} -R /home/jeff
+
+USER jeff
+ENV HOME /home/jeff
+CMD /usr/bin/firefox

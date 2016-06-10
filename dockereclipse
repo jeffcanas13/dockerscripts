@@ -1,0 +1,6 @@
+docker run -ti --rm --privileged \
+        -e DISPLAY=$DISPLAY \
+        -v /tmp/.X11-unix:/tmp/.X11-unix \
+        -v /home/developer/.eclipse-docker:/home/developer/.eclipse-docker \
+        -v /home/developer/workspace:/home/developer/workspace \
+        jsc/eclipsemars
